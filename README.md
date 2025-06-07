@@ -1,2 +1,2 @@
 # temptest
-# this is temp test.
+# this is temp test
