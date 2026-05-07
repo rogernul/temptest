@@ -1,4 +1,11 @@
 # h
+windows11下载官网
+https://www.microsoft.com/zh-cn/software-download/windows11
+
+office365下载官网
+https://www.microsoft.com/zh-cn/microsoft-365/download-office
+https://go.microsoft.com/fwlink/?linkid=2264705&clcid=0x804&culture=zh-cn&country=cn
+https://c2rsetup.officeapps.live.com/c2r/download.aspx?ProductreleaseID=O365HomePremRetail&language=en-us&platform=def&version=O16GA&source=MktDownloadForWinPage
 
 ***
 ## w11
