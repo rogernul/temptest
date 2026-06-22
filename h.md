@@ -15,9 +15,11 @@ shutdown /r /t 0
 [office365下载官网 win版](https://c2rsetup.officeapps.live.com/c2r/download.aspx?ProductreleaseID=O365HomePremRetail&language=en-us&platform=def&version=O16GA&source=MktDownloadForWinPage)</br>
 [office365下载官网 img](https://officecdn.microsoft.com/db/492350F6-3A01-4F97-B9C0-C7C6DDF67D60/media/zh-CN/O365ProPlusRetail.img)
 
-
-mindmap
+```mermaid
+fmindmap
 Root
     A
       B
       C
+
+```
