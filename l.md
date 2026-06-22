@@ -1,11 +1,11 @@
 ```mermaid
 mindmap
-root([kernel.org](https://www.kernel.org/theme/images/logos/favicon.png))
-    [lfs](https://linuxfromscratch.org/)
-    redhat
-    suse
-    Debian
-      grml
-      ubuntu
-    openwrt
+kernel.org
+    linuxfromscratch.org
+    redhat.com
+    suse.com
+    debian.org
+      grml.org
+      ubuntu.com
+    openwrt.org
 ```
