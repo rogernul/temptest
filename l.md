@@ -1,7 +1,7 @@
 ```mermaid
 mindmap
-![kernel.org](https://www.kernel.org/theme/images/logos/favicon.png)
-    LFS
+[kernel.org](https://www.kernel.org/theme/images/logos/favicon.png)
+    [lfs](https://linuxfromscratch.org/)
     redhat
     suse
     Debian
