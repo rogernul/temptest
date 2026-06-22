@@ -8,6 +8,7 @@ kernel.org
     debian.org
       grml.org
       ubuntu.com
+    archlinux.org
     openwrt.org
     qemu.org
       libvirt.org
