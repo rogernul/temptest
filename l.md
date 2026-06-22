@@ -1,6 +1,6 @@
 ```mermaid
 mindmap
-kernel
+![kernel.org](https://www.kernel.org/theme/images/logos/favicon.png)
     LFS
     redhat
     suse
