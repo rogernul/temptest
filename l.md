@@ -1,8 +1,11 @@
 ```mermaid
 mindmap
-Root
-    A
-      B
-      C
-
+kernel
+    LFS
+    redhat
+    suse
+    Debian
+      grml
+      ubuntu
+    openwrt
 ```
