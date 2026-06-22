@@ -2,12 +2,16 @@
 mindmap
 kernel.org
     linuxfromscratch.org
+      busybox.net
     redhat.com
     suse.com
     debian.org
       grml.org
       ubuntu.com
     openwrt.org
+    qemu.org
+      libvirt.org
+        virt-manager.org
 ```
 
 [GitHub](https://github.com/rogernul/temptest/blob/main/h.md?plain=1)
@@ -17,8 +21,11 @@ kernel.org
 [京东](https://www.jd.com/)
 [淘宝](https://www.taobao.com/)
 [CPU](https://www.cpubenchmark.net/)
-[massgrave.dev](https://massgrave.dev/)
+
 [w3school](https://www.w3school.com.cn/html/index.asp)
+[massgrave.dev](https://massgrave.dev/)
+[w11](https://www.microsoft.com/zh-cn/software-download/windows11/)
+[o365](https://www.microsoft.com/zh-cn/microsoft-365/get-office-and-microsoft-365-oem-download-page)
 
 [Git教程](https://www.runoob.com/git/git-basic-operations.html)
 [axel](https://github.com/axel-download-accelerator/axel/releases)
