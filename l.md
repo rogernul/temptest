@@ -1,6 +1,9 @@
 ```mermaid
 mindmap
 kernel.org
+    qemu.org
+      libvirt.org
+        virt-manager.org
     linuxfromscratch.org
       busybox.net
     redhat.com
@@ -10,9 +13,6 @@ kernel.org
       ubuntu.com
     archlinux.org
     openwrt.org
-    qemu.org
-      libvirt.org
-        virt-manager.org
 ```
 
 [GitHub](https://github.com/rogernul/temptest/blob/main/h.md?plain=1)
