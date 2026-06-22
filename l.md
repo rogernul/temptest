@@ -6,13 +6,13 @@ kernel.org
         virt-manager.org
     linuxfromscratch.org
       busybox.net
+    openwrt.org
     redhat.com
     suse.com
     debian.org
       grml.org
       ubuntu.com
     archlinux.org
-    openwrt.org
 ```
 
 [GitHub](https://github.com/rogernul/temptest/blob/main/h.md?plain=1)
