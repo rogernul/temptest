@@ -16,4 +16,8 @@ shutdown /r /t 0
 [office365下载官网 img](https://officecdn.microsoft.com/db/492350F6-3A01-4F97-B9C0-C7C6DDF67D60/media/zh-CN/O365ProPlusRetail.img)
 
 
-
+mindmap
+Root
+    A
+      B
+      C
