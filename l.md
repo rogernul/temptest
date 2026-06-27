@@ -35,6 +35,7 @@ kernel.org
 [Kernel](https://kernel.org/)
 [BusyBox](https://www.busybox.net/)
 [LFS](https://www.linuxfromscratch.org/lfs/)
+[gentoo](https://www.gentoo.org)
 [OpenWrt Wiki](https://openwrt.org/supported_devices)
 [OpenWrt dld](https://downloads.openwrt.org/)
 [Grml](https://grml.org/)
