@@ -6,6 +6,7 @@ kernel.org
         virt-manager.org
     linuxfromscratch.org
       busybox.net
+    gentoo.otg
     openwrt.org
     redhat.com
     suse.com
