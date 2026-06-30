@@ -56,19 +56,20 @@ chronyd -q
 
 nano /etc/resolv.conf
   nameserver 1.1.1.1
-  
-# links https://www.gentoo.org/downloads/mirrors/
-links https://mirrors.ustc.edu.cn/gentoo
-stage3-amd64-desktop-systemd-20260621T164603Z.tar.xz
-stage3-amd64-desktop-openrc-20260621T164603Z.tar.xz
 
+### Choosing a stage file  
+links https://www.gentoo.org/downloads/mirrors/
+links https://mirrors.ustc.edu.cn/gentoo
+stage3-amd64-desktop-openrc-20260621T164603Z.tar.xz
+stage3-amd64-desktop-systemd-20260621T164603Z.tar.xz
+
+### Installing a stage file
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner -C /mnt/gentoo
 
-## Installing the Gentoo base system
+### Configuring compile options
 nano /mnt/gentoo/etc/portage/make.conf
 Compiler flags to set for all languages
 COMMON_FLAGS="-march=native -O2 -pipe"
-# Use the same settings for both variables
 CFLAGS="${COMMON_FLAGS}"
 CXXFLAGS="${COMMON_FLAGS}"
 
@@ -77,6 +78,7 @@ nano /etc/portage/make.conf
 /* This should be equal to number of processors, see "man emerge" for details.
 EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --jobs=2 --load-average=2"
 
+## Installing the Gentoo base system
 cat /etc/resolv.conf
 cat /mnt/gentoo/etc/resolv.conf
 cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
@@ -94,7 +96,6 @@ mount --types tmpfs --options nosuid,nodev,noexec shm /dev/shm
 
 chmod 1777 /dev/shm /run/shm
 
-## Configuring the Linux kernel
 chroot /mnt/gentoo /bin/bash
 source /etc/profile
 export PS1="(chroot) ${PS1}"
@@ -107,23 +108,14 @@ mkdir /efi
 mount /dev/sda1 /efi
 /* mount /dev/vda1 /boot
 
-
-emerge --sync
 emerge --ask --verbose --oneshot app-portage/mirrorselect
 mirrorselect -i -o >> /etc/portage/make.conf
 
-## Configuring the system
-
-## Installing system tools
-
-## Configuring the bootloader
-
-## Finalizing the installation
-    
-
-
-
+echo emerge --sync
 emerge-webrsync
+
+
+## Configuring the Linux kernel
 
 eselect profile list
 
@@ -134,6 +126,14 @@ getuto
 portageq envvar ACCEPT_LICENSE
 
 mkdir /etc/portage/package.license
+
+emerge --ask --verbose --update --deep --changed-use @world
+
+emerge --ask --verbose --update --deep --newuse --getbinpkg @world
+
+emerge --ask --pretend --depclean
+
+emerge --ask --depclean
 
 ls -l /usr/share/zoneinfo/
 ls -l /usr/share/zoneinfo/Asia/
@@ -151,17 +151,20 @@ eselect locale set 2
 
 env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
 
+## Configuring the system
 emerge --ask sys-kernel/linux-firmware
 
 emerge --ask sys-firmware/sof-firmware
 
 emerge --ask sys-kernel/installkernel
 
+
 emerge --ask sys-apps/systemd-utils
 
 mkdir -p /etc/cmdline.d
 ln -s /etc/kernel/cmdline /etc/cmdline.d/00-installkernel.conf
 
+echo For OpenRC systems 
 emerge --ask sys-kernel/installkernel
 
 mkdir -p /efi/EFI/Gentoo
@@ -259,3 +262,9 @@ cd
 umount -l /mnt/gentoo/dev{/shm,/pts,}
 umount -R /mnt/gentoo
 reboot
+## Installing system tools
+
+## Configuring the bootloader
+
+## Finalizing the installation
+
