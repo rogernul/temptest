@@ -1,31 +1,38 @@
 gentoo.org
 links mirrors.ustc.edu.cn/gentoo
 
-Minimal Installation CD
-  https://distfiles.gentoo.org/releases/amd64/autobuilds/20260531T160106Z/install-amd64-minimal-20260531T160106Z.iso
-LiveGUI USB Image
-  https://distfiles.gentoo.org/releases/amd64/autobuilds/20260510T170106Z/livegui-amd64-20260510T170106Z.iso
-stage3-amd64-desktop-systemd
-  https://distfiles.gentoo.org/releases/amd64/autobuilds/20260621T164603Z/stage3-amd64-desktop-systemd-20260621T164603Z.tar.xz
-  https://distfiles.gentoo.org/releases/amd64/autobuilds/20260621T164603Z/stage3-amd64-desktop-systemd-20260621T164603Z.tar.xz
-  https://mirrors.ustc.edu.cn/gentoo/releases/amd64/autobuilds/20260621T164603Z/stage3-amd64-desktop-systemd-20260621T164603Z.tar.xz
-  https://mirrors.ustc.edu.cn/gentoo/releases/amd64/autobuilds/20260621T164603Z/stage3-amd64-desktop-systemd-20260621T164603Z.tar.xz.sha256
-  https://mirrors.aliyun.com/gentoo/releases/amd64/autobuilds/20260621T164603Z/
-qcow2 no root pw | no multilib | systemd
-  https://distfiles.gentoo.org/releases/amd64/autobuilds/20260621T164603Z/di-amd64-console-20260621T164603Z.qcow2
-  https://mirrors.ustc.edu.cn/gentoo/releases/amd64/autobuilds/20260621T164603Z/di-amd64-console-20260621T164603Z.qcow2
-  https://mirrors.ustc.edu.cn/gentoo/releases/amd64/autobuilds/20260621T164603Z/di-amd64-console-20260621T164603Z.qcow2.sha256
+## Installing Gentoo
+  https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Stage
 
-https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Stage
+## About the Gentoo Linux installation
+  https://www.bilibili.com/opus/1002694814294081584
+  https://www.bilibili.com/video/BV1zFx5e8EbZ
 
-https://www.bilibili.com/opus/1002694814294081584
+## Choosing the right installation medium
+  Minimal Installation CD
+    https://distfiles.gentoo.org/releases/amd64/autobuilds/20260531T160106Z/install-amd64-minimal-20260531T160106Z.iso
+  LiveGUI USB Image
+    https://distfiles.gentoo.org/releases/amd64/autobuilds/20260510T170106Z/livegui-amd64-20260510T170106Z.iso
+  stage3-amd64-desktop-systemd
+    https://distfiles.gentoo.org/releases/amd64/autobuilds/20260621T164603Z/stage3-amd64-desktop-systemd-20260621T164603Z.tar.xz
+    https://distfiles.gentoo.org/releases/amd64/autobuilds/20260621T164603Z/stage3-amd64-desktop-systemd-20260621T164603Z.tar.xz
+    https://mirrors.ustc.edu.cn/gentoo/releases/amd64/autobuilds/20260621T164603Z/stage3-amd64-desktop-systemd-20260621T164603Z.tar.xz
+    https://mirrors.ustc.edu.cn/gentoo/releases/amd64/autobuilds/20260621T164603Z/stage3-amd64-desktop-systemd-20260621T164603Z.tar.xz.sha256
+    https://mirrors.aliyun.com/gentoo/releases/amd64/autobuilds/20260621T164603Z/
+  qcow2 no root pw | no multilib | systemd
+    https://distfiles.gentoo.org/releases/amd64/autobuilds/20260621T164603Z/di-amd64-console-20260621T164603Z.qcow2
+    https://mirrors.ustc.edu.cn/gentoo/releases/amd64/autobuilds/20260621T164603Z/di-amd64-console-20260621T164603Z.qcow2
+    https://mirrors.ustc.edu.cn/gentoo/releases/amd64/autobuilds/20260621T164603Z/di-amd64-console-20260621T164603Z.qcow2.sha256
 
+## Configuring the network
 ping
 net-setup
 passwd root
 rc-service sshd start
 ip a
 ssh root@ip
+
+## Preparing the disks
 lsblk -f
 cfdisk /dev/sda
  gpt
@@ -43,6 +50,8 @@ mount /dev/sda3 /mnt/gentoo
 
 cd /mnt/gentoo/
 
+
+## Installing the Gentoo installation files
 chronyd -q
 
 nano /etc/resolv.conf
@@ -55,6 +64,7 @@ stage3-amd64-desktop-openrc-20260621T164603Z.tar.xz
 
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner -C /mnt/gentoo
 
+## Installing the Gentoo base system
 nano /mnt/gentoo/etc/portage/make.conf
 Compiler flags to set for all languages
 COMMON_FLAGS="-march=native -O2 -pipe"
@@ -63,8 +73,8 @@ CFLAGS="${COMMON_FLAGS}"
 CXXFLAGS="${COMMON_FLAGS}"
 
 nano /etc/portage/make.conf
-# EMERGE_DEFAULT_OPTS is set automatically by livecd-tools autoconfig during first live boot.
-# This should be equal to number of processors, see "man emerge" for details.
+/* EMERGE_DEFAULT_OPTS is set automatically by livecd-tools autoconfig during first live boot.
+/* This should be equal to number of processors, see "man emerge" for details.
 EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} --jobs=2 --load-average=2"
 
 cat /etc/resolv.conf
@@ -84,22 +94,34 @@ mount --types tmpfs --options nosuid,nodev,noexec shm /dev/shm
 
 chmod 1777 /dev/shm /run/shm
 
+## Configuring the Linux kernel
 chroot /mnt/gentoo /bin/bash
 source /etc/profile
 export PS1="(chroot) ${PS1}"
 
-# arch-chroot /mnt/gentoo
-# export PS1="(chroot) ${PS1}"
+/* arch-chroot /mnt/gentoo
+/* export PS1="(chroot) ${PS1}"
 
 mkdir /efi
 
 mount /dev/sda1 /efi
-# mount /dev/vda1 /boot
+/* mount /dev/vda1 /boot
 
 
 emerge --sync
 emerge --ask --verbose --oneshot app-portage/mirrorselect
 mirrorselect -i -o >> /etc/portage/make.conf
+
+## Configuring the system
+
+## Installing system tools
+
+## Configuring the bootloader
+
+## Finalizing the installation
+    
+
+
 
 emerge-webrsync
 
@@ -158,6 +180,10 @@ emerge --ask sys-kernel/installkernel
 emerge --ask sys-kernel/installkernel
 
 配置系统
+
+emerge -a genfstab
+genfstab -U / >> /etc/fstab
+
 nano /etc/fstab
 
 BIOS 系统
