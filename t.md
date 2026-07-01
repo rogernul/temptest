@@ -182,56 +182,34 @@ emerge --ask sys-kernel/installkernel
 
 emerge --ask sys-kernel/installkernel
 
-配置系统
+echo 配置系统
 
 emerge -a genfstab
 genfstab -U / >> /etc/fstab
 
 nano /etc/fstab
 
-BIOS 系统
-/dev/sda1   /boot        xfs    defaults    0 2
-/dev/sda2   none         swap    sw                   0 0
-/dev/sda3   /            xfs    defaults,noatime              0 1
-</div>
-/dev/cdrom  /mnt/cdrom   auto    noauto,user          0 0
-
-UEFI 系统
-# Adjust for any formatting differences and/or additional partitions created from the "Preparing the disks" step
-/dev/sda1   /efi        vfat    umask=0077,tz=UTC     0 2
-/dev/sda2   none         swap    sw                   0 0
-/dev/sda3   /            xfs    defaults,noatime              0 1
-</div>
-<div lang="en" dir="ltr" class="mw-content-ltr">
-/dev/cdrom  /mnt/cdrom   auto    noauto,user          0 0
-
-DPS UEFI PARTUUID
-# Adjust any formatting difference and additional partitions created from the "Preparing the disks" step.
-# This example shows a GPT disklabel with Discoverable Partition Specification (DPS) UUID set:
-PARTUUID=c12a7328-f81f-11d2-ba4b-00a0c93ec93b   /efi        vfat    umask=0077,tz=UTC            0 2
-PARTUUID=0657fd6d-a4ab-43c4-84e5-0933c84b4f4f   none        swap    sw                           0 0
-PARTUUID=4f68bce3-e8cd-4db1-96e7-fbcaf984b709   /           xfs     defaults,noatime             0 1
-
-网络信息
-主机名
-设置主机名（OpenRC 和 systemd）
+echo 网络信息
+echo 主机名
+echo 设置主机名（OpenRC 和 systemd）
 echo tux > /etc/hostname
-主机名 systemd 
+echo 主机名 systemd 
 hostnamectl hostname tux
 
-网络
-网络安装
+echo 网络
+echo 网络安装
 emerge --ask net-misc/dhcpcd
-网络openrc
+echo 网络openrc
 rc-update add dhcpcd default
 rc-service dhcpcd start 
-网络systemd
-systemctl enable dhcpcd
+echo 网络systemd
+echo systemctl enable dhcpcd
 
-emerge --ask --noreplace net-misc/netifrc
-nano /etc/conf.d/net
+echo emerge --ask --noreplace net-misc/netifrc
+echo nano /etc/conf.d/net
 
-安装工具
+## Installing system tools
+echo 安装工具
 emerge --ask app-admin/sysklogd
 rc-update add sysklogd default
 
@@ -241,6 +219,8 @@ emerge --ask app-shells/bash-completion
 
 emerge --ask net-misc/chrony
 rc-update add chronyd default
+
+## Configuring the bootloader
 
 配置引导加载程序
 #emerge --ask --verbose sys-boot/grub
@@ -256,15 +236,14 @@ cp /usr/share/shim/mmx64.efi /efi/EFI/Gentoo/mmx64.efi
 cp /usr/lib/grub/grub-x86_64.efi.signed /efi/EFI/Gentoo/grubx64.efi 
 openssl x509 -in /path/to/kernel_key.pem -inform PEM -out /path/to/kernel_key.der -outform DER
 
+## Finalizing the installation
 exit
 
 cd
 umount -l /mnt/gentoo/dev{/shm,/pts,}
 umount -R /mnt/gentoo
 reboot
-## Installing system tools
 
-## Configuring the bootloader
 
 ## Finalizing the installation
 
