@@ -40,9 +40,9 @@ cfdisk /dev/sda
   swap 4G
   ext4
   
-mkfs.fat -F 32 /dev/sda1
-mkswap /dev/sda2
-mkfs.ext4 /dev/sda3
+mkfs.fat -F 32 -n BOOT /dev/sda1
+mkswap -L SWAP /dev/sda2
+mkfs.ext4 -L GENTOO /dev/sda3
 
 mount /dev/sda1 /mnt/gentoo/efi --mkdir
 swapon /dev/sda2
