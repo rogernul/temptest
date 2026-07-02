@@ -33,7 +33,6 @@ ip a
 ssh root@ip
 
 ## Preparing the disks
-lsblk -f
 cfdisk /dev/sda
  gpt
   uefi 1G
@@ -47,6 +46,10 @@ mkfs.ext4 -L GENTOO /dev/sda3
 mount /dev/sda1 /mnt/gentoo/efi --mkdir
 swapon /dev/sda2
 mount /dev/sda3 /mnt/gentoo
+
+mount /dev/nvme0n1p1 /mnt/gentoo/efi --mkdir
+swapon /dev/nvme0n1p2
+mount /dev/nvme0n1p3 /mnt/gentoo
 
 cd /mnt/gentoo/
 
@@ -108,10 +111,10 @@ mkdir /efi
 mount /dev/sda1 /efi
 /* mount /dev/vda1 /boot
 
+emerge --sync
 emerge --ask --verbose --oneshot app-portage/mirrorselect
 mirrorselect -i -o >> /etc/portage/make.conf
 
-echo emerge --sync
 emerge-webrsync
 
 
