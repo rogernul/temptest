@@ -244,8 +244,6 @@ umount -l /mnt/gentoo/dev{/shm,/pts,}
 umount -R /mnt/gentoo
 reboot
 
-
 ## Finalizing the installation
 
-#
-https://github.com/microsoft/azurelinux
+#https://github.com/microsoft/azurelinux
