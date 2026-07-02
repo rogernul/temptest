@@ -7,7 +7,7 @@ links mirrors.ustc.edu.cn/gentoo
 ## About the Gentoo Linux installation
   https://www.bilibili.com/opus/1002694814294081584
   https://www.bilibili.com/video/BV1zFx5e8EbZ
-
+  https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Installation
 ## Choosing the right installation medium
   Minimal Installation CD
     https://distfiles.gentoo.org/releases/amd64/autobuilds/20260531T160106Z/install-amd64-minimal-20260531T160106Z.iso
@@ -247,3 +247,5 @@ reboot
 
 ## Finalizing the installation
 
+#
+https://github.com/microsoft/azurelinux
