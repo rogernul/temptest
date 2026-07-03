@@ -5,8 +5,8 @@
 [windows11下载官网 媒体创建工具](https://download.microsoft.com/download/0a8b07d9-a3bf-47b9-b71b-8e13354cec88/MediaCreationTool.exe)</br>
 [windows11下载官网 iso](https://software.download.prss.microsoft.com/Win11_25H2_Chinese_Simplified_x64_v2.iso)
 
-##windows时间设置<br>
-reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeisUniversal /t REG_DWORD /d 1 /f
+##windows时间设置  
+reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeisUniversal /t REG_DWORD /d 1 /f  
 shutdown /r /t 0
 
 ##Office<br>
