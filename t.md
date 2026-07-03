@@ -250,3 +250,33 @@ reboot
 ## Finalizing the installation
 
 #https://github.com/microsoft/azurelinux
+
+
+sudo apt install open-vm-tools
+sudo apt install open-vm-tools-desktop
+sudo vmhgfs-fuse
+sudo vmhgfs-fuse --help
+sudo mkdir -p /mnt/hgfs
+sudo vmhgfs-fuse .host:/ /mnt/hgfs -o allow_other
+cp -r * /mnt/hgfs/Temp/
+ls /mnt/hgfs/Temp/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
