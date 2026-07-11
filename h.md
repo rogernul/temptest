@@ -9,6 +9,8 @@
 reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeisUniversal /t REG_DWORD /d 1 /f  
 shutdown /r /t 0
 
+ttps://github.com/microsoft/azurelinux
+
 ##Office  
 [office365下载官网](https://www.microsoft.com/zh-cn/microsoft-365/download-office)  
 [office365下载官网 win版mac版](https://go.microsoft.com/fwlink/?linkid=2264705&clcid=0x804&culture=zh-cn&country=cn)
